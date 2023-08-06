@@ -1,0 +1,72 @@
+{
+	"extends": [/* "plugin:prettier/recommended", */ "alloy", "alloy/typescript", "alloy/react"],
+	// "plugins": ["unused-imports" /*,"prettier"*/],
+	"parserOptions": {
+		// "project": "tsconfig.json",
+		"parser": {
+			"js": "@babel/eslint-parser",
+			"jsx": "@babel/eslint-parser",
+			"ts": "@typescript-eslint/parser",
+			"tsx": "@typescript-eslint/parser"
+			// Leave the template parser unspecified, so that it could be determined by `<script lang="...">`
+		}
+	},
+	"env": {
+		// 你的环境变量（包含多个预定义的全局变量）
+		//
+		// browser: true,
+		// node: true,
+		// mocha: true,
+		// jest: true,
+		// jquery: true
+	},
+	// 貌似需要在对应项目内加这个才生效
+	// "parserOptions": {
+	//   // "project": "tsconfig.json",
+	//   "parser": {
+	//     "js": "@babel/eslint-parser",
+	//     "jsx": "@babel/eslint-parser",
+	//     "ts": "@typescript-eslint/parser",
+	//     "tsx": "@typescript-eslint/parser"
+	//     // Leave the template parser unspecified, so that it could be determined by `<script lang="...">`
+	//   }
+	// },
+	"globals": {
+		// 你的全局变量（设置为 false 表示它不允许被重新赋值）
+		//
+		// myGlobal: false
+	},
+	"rules": {
+		// 自定义你的规则
+		"no-param-reassign": "off", // 打开会导致reduce操作acc时报错
+		"no-undef": "off", // 打开则会导致d.ts内的类型报错
+		"prefer-promise-reject-errors": "off", // 打开会导致Promise.reject必须抛出reason
+		"interface-over-type-literal": "off",
+		"@typescript-eslint/consistent-type-definitions": "off", // 打开会导致不能随意使用type
+		"react/jsx-no-useless-fragment": "off",
+		"@typescript-eslint/consistent-type-assertions": "off", // 打开会导致不能使用类型断言
+		"vue/v-on-event-hyphenation": "off",
+		"vue/prefer-true-attribute-shorthand": "off",
+		"vue/define-macros-order": "off",
+		"no-unused-vars": "off", // or "@typescript-eslint/no-unused-vars": "off", 禁用是因为使用了另一个能自动删除未使用的导入的插件
+		// "unused-imports/no-unused-imports": "warn",
+		// "unused-imports/no-unused-vars": [
+		//   "off",
+		//   { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
+		// ],
+		"vue/v-on-function-call": "off", // 打开会导致v-on绑定的方法没有参数时不能加括号, 这对之前的代码来说可能会产生bug
+		"@typescript-eslint/no-non-null-asserted-optional-chain": "off",
+		"max-params": "off",
+		"@typescript-eslint/no-invalid-void-type": "off",
+		"react/no-unstable-nested-components": "off", // 打开会导致tsx不能使用嵌套组件
+		"react/no-children-prop": "off",
+		"unused-imports/no-unused-imports": "off",
+		"unused-imports/no-unused-vars": [
+			"off",
+			{ "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
+		],
+		"max-nested-callbacks": "off",
+		"@typescript-eslint/no-empty-interface": "off", // 不允许使用空接口
+		"complexity": "off"
+	}
+}
